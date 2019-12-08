@@ -11,21 +11,13 @@ namespace MicroPass
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly ObservableCollection<string> accounts;
-        private readonly VaultManager manager;      
+        private ObservableCollection<string> accounts;
+        private VaultManager manager;      
 
         public MainWindow()
         {
             InitializeComponent();
-            manager = new VaultManager();
-
-            accounts = new ObservableCollection<string>();
-            foreach (string file in manager.GetAccountNames())
-            {
-                accounts.Add(file);
-            }
-
-            accountsBox.ItemsSource = accounts;
+            LoadAccounts();
         }
 
         private void accountsBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -63,13 +55,33 @@ namespace MicroPass
             }
         }
 
-        private void AccountFilterBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        private void AccountFilterBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             accounts.Clear();
             foreach (string file in manager.GetAccountNames().Where(file => file.ToLowerInvariant().Contains(accountFilterBox.Text.ToLowerInvariant())))
             {
                 accounts.Add(file);
             }
+        }
+
+        private void SettingsButton_Click(object sender, RoutedEventArgs e)
+        {
+            SettingsPane settingsPane = new SettingsPane() { Owner = this };
+            settingsPane.ShowDialog();
+            LoadAccounts();
+        }
+
+        private void LoadAccounts()
+        {
+            manager = new VaultManager();
+
+            accounts = new ObservableCollection<string>();
+            foreach (string file in manager.GetAccountNames())
+            {
+                accounts.Add(file);
+            }
+
+            accountsBox.ItemsSource = accounts;
         }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using CommonNet.Cryptography;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -19,12 +18,7 @@ namespace MicroPass
 
         public VaultManager()
         {
-            passwordDirectory = ConfigurationManager.AppSettings["passwordDirectory"];
-            if (string.IsNullOrWhiteSpace(passwordDirectory) || !Directory.Exists(passwordDirectory))
-            {
-                passwordDirectory = Path.Combine(Directory.GetCurrentDirectory(), "passwords");
-                Directory.CreateDirectory(passwordDirectory);
-            }
+            passwordDirectory = PasswordDirectoryManager.GetOrCreatePasswordDirectory();
         }
 
         public static string GetAccountFileName(string accountName) => $"{accountName}.txt";

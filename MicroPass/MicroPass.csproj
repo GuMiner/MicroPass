@@ -60,7 +60,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="PasswordDirectoryManager.cs" />
+    <Compile Include="SettingsPane.xaml.cs">
+      <DependentUpon>SettingsPane.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VaultManager.cs" />
+    <Page Include="SettingsPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="AddNewPane.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
