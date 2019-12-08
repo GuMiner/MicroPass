@@ -1,0 +1,3 @@
+[submodule "CommonNet"]
+	path = CommonNet
+	url = https://github.com/GuMiner/CommonNet

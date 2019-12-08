@@ -1,4 +1,4 @@
-﻿using Common.Cryptography;
+﻿using CommonNet.Cryptography;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
