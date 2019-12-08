@@ -2,10 +2,8 @@
 A simple password management tool
 
 # Setup
-Download the release (TODO), uncompress, and run. No installation required!
+Download the [release](https://github.com/GuMiner/MicroPass/releases/tag/v1.0), uncompress, and run. No installation required!
 
 # Usage
-- Download the release
-- Unzip / uncompress into the folder you want to run the app from
 - Run the app
 - Click on 'Settings' to change the path to store encrypted passwords
