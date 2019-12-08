@@ -7,16 +7,18 @@
         mc:Ignorable="d"
         Title="Micro Password Helper"
         MinHeight="275.416" MinWidth="338.429"
-        Height="317.416" Width="354.429" ResizeMode="NoResize">
+        Height="336.416" Width="376.429" ResizeMode="NoResize">
     <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
         <Label Content="Vault Password:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
         <PasswordBox x:Name="rootPasswordBox" Height="23" Margin="105,14,10,0" PasswordChar="*" VerticalAlignment="Top"/>
-        <Label Content="Accounts" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
-        <ListBox x:Name="accountsBox" Margin="10,72,172,10" SelectionChanged="accountsBox_SelectionChanged"/>
-        
+        <Label Content="Account Filter" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="accountsBox" Margin="10,69,172,10" SelectionChanged="accountsBox_SelectionChanged"/>
+
         <Button x:Name="encodeButton" Content="Add New" Margin="0,0,10,10" Click="encodeButton_Click" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="75"/>
-        
-        <TextBox x:Name="passwordBox" Margin="181,72,10,0" TextWrapping="Wrap" Text="&lt;Password&gt;" Height="51" VerticalAlignment="Top" Background="#FFE7F9E7"/>
+
+        <TextBox x:Name="passwordBox" Margin="203,0,10,35" TextWrapping="Wrap" Text="&lt;Password&gt;" Background="#FFE7F9E7" Height="85" VerticalAlignment="Bottom"/>
+        <Label Content="Saved Password" HorizontalAlignment="Left" Margin="203,0,0,120" Height="26" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="accountFilterBox" Margin="105,42,73,0" TextWrapping="Wrap" Text="" Height="22" VerticalAlignment="Top" Background="#9999F9E7" TextChanged="AccountFilterBox_TextChanged"/>
 
     </Grid>
 </Window>

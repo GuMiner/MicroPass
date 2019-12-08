@@ -23,6 +23,7 @@ namespace MicroPass
             if (string.IsNullOrWhiteSpace(passwordDirectory) || !Directory.Exists(passwordDirectory))
             {
                 passwordDirectory = Path.Combine(Directory.GetCurrentDirectory(), "passwords");
+                Directory.CreateDirectory(passwordDirectory);
             }
         }
 

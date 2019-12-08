@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -59,6 +60,15 @@ namespace MicroPass
             if (string.IsNullOrWhiteSpace(rootPasswordBox.Password))
             {
                 throw new ArgumentException("The vault password must be filled in.");
+            }
+        }
+
+        private void AccountFilterBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            accounts.Clear();
+            foreach (string file in manager.GetAccountNames().Where(file => file.ToLowerInvariant().Contains(accountFilterBox.Text.ToLowerInvariant())))
+            {
+                accounts.Add(file);
             }
         }
     }
