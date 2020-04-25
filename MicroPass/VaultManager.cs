@@ -14,12 +14,7 @@ namespace MicroPass
     {
         private readonly ITextEncoder textEncoder = new Aes256TextEncoder();
 
-        private readonly string passwordDirectory;
-
-        public VaultManager()
-        {
-            passwordDirectory = PasswordDirectoryManager.GetOrCreatePasswordDirectory();
-        }
+        private readonly string passwordDirectory = PasswordDirectoryManager.GetOrCreatePasswordDirectory();
 
         public static string GetAccountFileName(string accountName) => $"{accountName}.txt";
 

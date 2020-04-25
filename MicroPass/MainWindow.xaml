@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MicroPass"
         mc:Ignorable="d"
         Title="Micro Password Helper"
         MinHeight="275.416" MinWidth="338.429"
@@ -11,15 +10,17 @@
     <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
         <Label Content="Vault Password:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
         <PasswordBox x:Name="rootPasswordBox" Height="23" Margin="105,14,10,0" PasswordChar="*" VerticalAlignment="Top"/>
+        
         <Label Content="Account Filter" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="accountFilterBox" Margin="105,42,0,0" TextWrapping="Wrap" Text="" Height="22" VerticalAlignment="Top" Background="#9999F9E7" TextChanged="AccountFilterBox_TextChanged" HorizontalAlignment="Left" Width="175"/>
+        
         <ListBox x:Name="accountsBox" Margin="10,69,172,10" SelectionChanged="accountsBox_SelectionChanged"/>
 
         <Button x:Name="encodeButton" Content="Add New" Margin="0,0,10,10" Click="encodeButton_Click" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="75"/>
-
-        <TextBox x:Name="passwordBox" Margin="203,0,10,35" TextWrapping="Wrap" Text="&lt;Password&gt;" Background="#FFE7F9E7" Height="85" VerticalAlignment="Bottom"/>
-        <Label Content="Saved Password" HorizontalAlignment="Left" Margin="203,0,0,120" Height="26" VerticalAlignment="Bottom"/>
-        <TextBox x:Name="accountFilterBox" Margin="105,42,0,0" TextWrapping="Wrap" Text="" Height="22" VerticalAlignment="Top" Background="#9999F9E7" TextChanged="AccountFilterBox_TextChanged" HorizontalAlignment="Left" Width="175"/>
+        
         <Button x:Name="settingsButton" Content="Settings ⚙" HorizontalAlignment="Left" Margin="205,69,0,0" VerticalAlignment="Top" Width="75" Click="SettingsButton_Click"/>
-
+        
+        <Label Content="Saved Password" HorizontalAlignment="Left" Margin="203,0,0,120" Height="26" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="passwordBox" Margin="203,0,10,35" TextWrapping="Wrap" Text="&lt;Password&gt;" Background="#FFE7F9E7" Height="85" VerticalAlignment="Bottom"/>
     </Grid>
 </Window>
